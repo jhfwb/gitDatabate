@@ -32,14 +32,15 @@ goto :menu
 
 :all
 git add .
-echo 正在进行提交中...
+echo 正在进行提交中...(如需取消，请关闭)
 set/p  ca=  请输入描述内容：
 git commit -m "%ca%"
 echo 正在进行对文件进行描述中...
 Echo 
 set/p  yd=  请选择 Y. 推送远程            N. 退出：
 rem 推送远程命令
-If  %yd%==Y ( git push origin master -f  ) else (exit)
+If  %yd%==Y ( git push origin master -f  ) else (goto :menu)
+goto :menu
 
 :backlast
 set/p  yd= 确认返回上一个版本？ Y. 确认            N.取消：
